@@ -1,0 +1,220 @@
+[gd_scene format=3 uid="uid://po63m4srixl4"]
+
+[ext_resource type="PackedScene" uid="uid://0t0qb3qjq6my" path="res://Scenes/PlatformRed.tscn" id="2_4lh3q"]
+[ext_resource type="PackedScene" uid="uid://cf0w0skqs3k64" path="res://Scenes/player.tscn" id="2_21dfl"]
+[ext_resource type="PackedScene" uid="uid://dfc0ecsjufu7v" path="res://Scenes/PlatformBlue.tscn" id="3_mj5wy"]
+[ext_resource type="Script" uid="uid://bpbjc2oxm2mpf" path="res://Scripts/DeadZone.gd" id="4_8ry15"]
+[ext_resource type="PackedScene" uid="uid://bk5n0tn4k1l0c" path="res://Scenes/Coin.tscn" id="5_4fiv6"]
+[ext_resource type="Script" uid="uid://dxc4cdl3tsvrj" path="res://Scripts/GameManager.gd" id="6_8fvkd"]
+[ext_resource type="Texture2D" uid="uid://cnbbny7qjh2xn" path="res://Assets/Textures/coin.png" id="7_ow7xm"]
+[ext_resource type="Script" uid="uid://bblncv7qj864l" path="res://Scripts/GameUI.gd" id="7_x8whp"]
+[ext_resource type="Texture2D" uid="uid://hk3gj75327hy" path="res://Assets/Textures/Logo.png" id="9_46gx6"]
+[ext_resource type="PackedScene" uid="uid://dsn03h7dtm345" path="res://Scenes/door.tscn" id="10_okl2h"]
+[ext_resource type="PackedScene" uid="uid://bnq3qyb345yxp" path="res://Assets/Map/Tree.glb" id="11_tse6v"]
+[ext_resource type="PackedScene" uid="uid://dbpnfqo014p2q" path="res://Assets/Map/Tree-ahBEW2RRgq.glb" id="12_q14uu"]
+[ext_resource type="PackedScene" uid="uid://jfhrqwgmmsn2" path="res://Assets/Map/Tree2.glb" id="13_yidtr"]
+[ext_resource type="PackedScene" uid="uid://chdewyemdee6v" path="res://Assets/Map/Tree-s8XdT4FOZz.glb" id="14_t5fyi"]
+[ext_resource type="PackedScene" uid="uid://ddfn72v1l38gh" path="res://Assets/Map/Small Rock.glb" id="15_4nq1w"]
+
+[sub_resource type="Environment" id="Environment_g4ka7"]
+background_mode = 1
+background_color = Color(0.764706, 0.764706, 0.764706, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.662745, 0.694118, 0.772549, 1)
+ambient_light_energy = 1.15
+tonemap_mode = 2
+tonemap_exposure = 0.75
+ssr_enabled = true
+ssao_enabled = true
+ssao_radius = 0.45
+ssao_intensity = 1.0
+ssao_power = 15.0
+ssil_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+glow_intensity = 2.0
+fog_light_color = Color(0.647059, 0.678431, 0.72549, 1)
+volumetric_fog_temporal_reprojection_enabled = false
+adjustment_enabled = true
+adjustment_brightness = 1.06
+adjustment_contrast = 0.95
+adjustment_saturation = 1.09
+
+[sub_resource type="SystemFont" id="SystemFont_om7om"]
+font_names = PackedStringArray("Star Choco")
+
+[sub_resource type="SystemFont" id="SystemFont_ub50t"]
+font_names = PackedStringArray("Star Choco")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_asf4q"]
+size = Vector3(128, 17, 112)
+
+[sub_resource type="SystemFont" id="SystemFont_1ixsq"]
+font_names = PackedStringArray("Star Choco")
+multichannel_signed_distance_field = true
+
+[sub_resource type="SystemFont" id="SystemFont_656xb"]
+font_names = PackedStringArray("Star Choco")
+
+[sub_resource type="LabelSettings" id="LabelSettings_igq7x"]
+font = SubResource("SystemFont_656xb")
+font_size = 50
+font_color = Color(0.996094, 0.691406, 0.261719, 1)
+
+[node name="DemoScene" type="Node3D" unique_id=357533078]
+
+[node name="Player" parent="." unique_id=1135813976 instance=ExtResource("2_21dfl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="Platforms" type="Node3D" parent="." unique_id=719510224]
+
+[node name="PlatformRed" parent="Platforms" unique_id=1709313697 instance=ExtResource("2_4lh3q")]
+transform = Transform3D(3.9312, 0, 0, 0, 0.39312, 0, 0, 0, 3.9312, 0.0200105, 3, 0.00302696)
+
+[node name="PlatformRed2" parent="Platforms" unique_id=115532953 instance=ExtResource("2_4lh3q")]
+transform = Transform3D(3.9312, 0, 0, 0, 0.39312, 0, 0, 0, 3.9312, 9.02, 6, -20.997)
+
+[node name="PlatformRed3" parent="Platforms" unique_id=1672663852 instance=ExtResource("2_4lh3q")]
+transform = Transform3D(5.30712, 0, 0, 0, 0.530712, 0, 0, 0, 5.30712, 18.02, 9, 2.00303)
+
+[node name="PlatformBlue" parent="Platforms" unique_id=46673979 instance=ExtResource("3_mj5wy")]
+transform = Transform3D(3.90286, 0, 0, 0, 0.864, 0, 0, 0, 3.90286, 0, 3, -11)
+
+[node name="PlatformBlue2" parent="Platforms" unique_id=1929098172 instance=ExtResource("3_mj5wy")]
+transform = Transform3D(3.90286, 0, 0, 0, 0.864, 0, 0, 0, 3.90286, 0, 4.01868, -21.7155)
+
+[node name="PlatformBlue3" parent="Platforms" unique_id=429140117 instance=ExtResource("3_mj5wy")]
+transform = Transform3D(3.90286, 0, 0, 0, 0.864, 0, 0, 0, 3.90286, 18, 7.01868, -20.7155)
+
+[node name="PlatformBlue4" parent="Platforms" unique_id=981784105 instance=ExtResource("3_mj5wy")]
+transform = Transform3D(3.90286, 0, 0, 0, 0.864, 0, 0, 0, 3.90286, 18, 8.01868, -9.71549)
+
+[node name="Environment" type="Node3D" parent="." unique_id=2047311498]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=1982020284]
+environment = SubResource("Environment_g4ka7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=928097669]
+transform = Transform3D(-0.898603, 0.438763, 2.98254e-08, 0.146657, 0.300359, 0.942484, 0.413527, 0.846919, -0.334251, 9.04457, 6.63937, -28.4749)
+shadow_enabled = true
+
+[node name="Extras" type="Node3D" parent="." unique_id=821020946]
+
+[node name="SpawnPosition" type="Marker3D" parent="Extras" unique_id=363928935]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Extras" unique_id=1434849430]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -40)
+texture = ExtResource("9_46gx6")
+
+[node name="Features" type="Label3D" parent="Extras" unique_id=155309017]
+transform = Transform3D(0.387789, 0, 0.921748, 0, 1, 0, -0.921748, 0, 0.387789, -14.0511, 5.78537, -6.67751)
+text = "Features:
+Working Controller
+Double Jump
+Basic Score System
+Animations"
+font = SubResource("SystemFont_om7om")
+font_size = 250
+outline_size = 0
+uppercase = true
+
+[node name="Credits" type="Label3D" parent="Extras" unique_id=1766639251]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0336823, 4.71136, 8.82437)
+text = "Platform Models By: Rayyan Aziz
+Character By: GDQuest
+Programming & Level Design: Adil Shafiq"
+font = SubResource("SystemFont_ub50t")
+font_size = 100
+outline_size = 0
+uppercase = true
+
+[node name="Coins" type="Node3D" parent="." unique_id=603719861]
+
+[node name="Coin" parent="Coins" unique_id=1641449976 instance=ExtResource("5_4fiv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.36921, -11)
+
+[node name="Coin2" parent="Coins" unique_id=1478366829 instance=ExtResource("5_4fiv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.36921, -21.6303)
+
+[node name="Coin3" parent="Coins" unique_id=835180454 instance=ExtResource("5_4fiv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.14233, 7.06635, -20.9353)
+
+[node name="Coin4" parent="Coins" unique_id=291611444 instance=ExtResource("5_4fiv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8983, 8.76539, -20.793)
+
+[node name="Coin5" parent="Coins" unique_id=1966773405 instance=ExtResource("5_4fiv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8983, 9.70155, -9.79296)
+
+[node name="GameManager" type="Node3D" parent="." unique_id=31313632]
+script = ExtResource("6_8fvkd")
+
+[node name="DeadZone" type="Area3D" parent="." unique_id=1803208744]
+script = ExtResource("4_8ry15")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeadZone" unique_id=1592983093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 0)
+shape = SubResource("BoxShape3D_asf4q")
+
+[node name="UserInterface" type="CanvasLayer" parent="." unique_id=1831039440]
+
+[node name="GameUI" type="Control" parent="UserInterface" unique_id=1533130185]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_x8whp")
+
+[node name="CoinTexture" type="TextureRect" parent="UserInterface/GameUI" unique_id=194250841]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 31.0
+offset_right = 122.0
+offset_bottom = 121.0
+texture = ExtResource("7_ow7xm")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="CoinsLabel" type="Label" parent="UserInterface/GameUI" unique_id=603124685]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 50.0
+offset_right = 193.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0.996094, 0.710938, 0.261719, 1)
+theme_override_colors/font_outline_color = Color(0.644531, 0.410156, 0.1875, 1)
+theme_override_constants/outline_size = 24
+theme_override_fonts/font = SubResource("SystemFont_1ixsq")
+theme_override_font_sizes/font_size = 48
+text = "X 3"
+label_settings = SubResource("LabelSettings_igq7x")
+
+[node name="door" parent="." unique_id=1354611857 instance=ExtResource("10_okl2h")]
+transform = Transform3D(6.8355956, 0, 0, 0, 3.6023889, 0, 0, 0, 2.4830792, 19.688398, 9.530712, 2.9094276)
+
+[node name="Tree" parent="." unique_id=1439814816 instance=ExtResource("11_tse6v")]
+transform = Transform3D(3.186687, 0, 0, 0, 4.240618, 0, 0, 0, 3.8001661, -2.0999799, 3.8342948, -9.388261)
+
+[node name="Root Scene" parent="." unique_id=362427663 instance=ExtResource("12_q14uu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9053, 6.3933897, -19.315763)
+
+[node name="Root Scene2" parent="." unique_id=1082724279 instance=ExtResource("13_yidtr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.36688, 9.531022, 5.313879)
+
+[node name="Root Scene3" parent="." unique_id=182612201 instance=ExtResource("14_t5fyi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79441, 3.3931203, 2.0268323)
+
+[node name="Small Rock" parent="." unique_id=1850497144 instance=ExtResource("15_4nq1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.728483, 9.537987, 4.646387)
+
+[node name="Small Rock2" parent="." unique_id=654894938 instance=ExtResource("15_4nq1w")]
+transform = Transform3D(1.6313131, 0, 0, 0, 1.9472821, 0, 0, 0, 1.6805646, 21.124598, 9.537988, 4.563785)
+
+[node name="Small Rock3" parent="." unique_id=1780401104 instance=ExtResource("15_4nq1w")]
+transform = Transform3D(0.1656775, 0, 0.98618, 0, 1, 0, -0.98618, 0, 0.1656775, 20.555962, 9.537987, 5.0603194)
+
+[node name="Small Rock4" parent="." unique_id=771140126 instance=ExtResource("15_4nq1w")]
+transform = Transform3D(0.27027187, 0, 1.6573391, 0, 1.9472821, 0, -1.6087682, 0, 0.2784317, 20.37445, 9.537988, 5.6421742)
+
+[connection signal="body_entered" from="DeadZone" to="DeadZone" method="_on_body_entered"]
